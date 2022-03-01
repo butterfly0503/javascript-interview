@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
-
-import "./styles.css";
-
 import "./mock-api/mock-server";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles.css";
+import Persons from "./components/Persons";
+import { usePersons } from "./hooks/usePersons";
 
 export default function App() {
-  const [persons, setPersons] = useState([]);
+  const persons = usePersons();
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <Persons persons={persons} />
     </div>
   );
 }
